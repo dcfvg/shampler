@@ -1,6 +1,6 @@
 shampler
 ======
-shampler (shell—sampler) creates a choir in your terminal.
+shampler (shell—sampler) creates a choir using command line.
 
 ![](https://raw.githubusercontent.com/dcfvg/shampler/master/capture.png)
 
