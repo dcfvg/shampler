@@ -1,6 +1,6 @@
 shampler
 ======
-shell—sampler creates a choir in your terminal.
+shampler (shell—sampler) creates a choir in your terminal.
 
 ### singers (mac)
 
