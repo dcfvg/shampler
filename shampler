@@ -24,7 +24,7 @@ function askVoice {
 	voice=${voices[$choice]}
 
 	echo " - i'm $voice ♫"
-	say -v $voice "i'm $voice"
+	say -v "$voice" "i'm $voice"
 
 }
 
@@ -33,6 +33,7 @@ if [[ -z "$1" ]]
 	then read -p " - What are the lyrics ? " message
 fi
 read -p " - What is the tempo ( in seconds )? " interval
+read -p " - What is the speach speed ( in word per minut )? " rate
 
 while true
 do
@@ -41,7 +42,8 @@ do
 	echo "$voice is saying '$message' every $interval seconds." 
 	say \
 	-v  $voice \
-	$message
+	-r $rate\ 
+	"$message" &
 	
 	for (( i=interval; i>0; i--)); do
     sleep 1 &
