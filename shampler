@@ -42,7 +42,8 @@ do
 	echo "$voice is saying '$message' every $interval seconds." 
 	say \
 	-v  $voice \
-	-r $rate\ 
+	-r $rate\
+	--progress \
 	"$message" &
 	
 	for (( i=interval; i>0; i--)); do
