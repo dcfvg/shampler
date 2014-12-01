@@ -4,7 +4,6 @@ message=$1
 
 declare -a voices=(Agnes Kathy Princess Vicki Victoria Bruce Fred Junior Ralph Albert "Bad News" Bahh Bells Boing Bubbles Cellos Deranged "Good News" Hysterical "Pipe Organ" Trinoids Whisper Zarvox)
 
-
 function askVoice {
 
 	id=0
@@ -29,22 +28,23 @@ function askVoice {
 }
 
 askVoice
+
 if [[ -z "$1" ]] 
 	then read -p " - What are the lyrics ? " message
 fi
+
 read -p " - What is the tempo ( in seconds )? " interval
-read -p " - What is the speach speed ( in word per minut )? " rate
+read -p " - What is the speach speed ( in word per minutes ~ 1-1000 )? " rate
 
 while true
 do
 	clear
 	
-	echo "$voice is saying '$message' every $interval seconds." 
-	say \
-	-v  $voice \
-	-r $rate\
-	--progress \
-	"$message" &
+	echo "$voice is saying : "
+	echo "'$message'"
+	echo "every $interval seconds at $rate words per minutes." 
+	
+	say -v $voice -r $rate "$message" &
 	
 	for (( i=interval; i>0; i--)); do
     sleep 1 &
@@ -53,4 +53,3 @@ do
     printf "\t 							\r"
   done
 done
-
